@@ -6,24 +6,47 @@
 <title> Test Project for Job </title>
 <style>
   body {
-    font-family: Poppins , sans-serif;
+    font-family: Poppins, sans-serif;
     background: linear-gradient(rgba(255,182,193,0.5), rgba(255,215,220,0.5)), 
                 url('https://images.unsplash.com/photo-1515036559634-8bdf4d2e3c1c?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
-    color: #0C2932 ;
+    color: #0C2932;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    text-align: center;
   }
+
   h1 {
-    font-size: 2em;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    margin-bottom: 0.8rem;
+    text-shadow: 0 0 10px rgba(255,105,180,0.5);
   }
+
   #counter {
-    font-size: 2em;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    background: rgba(255, 255, 255, 0.4);
+    padding: 0.5rem 1.2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(255,182,193,0.5);
+    margin-bottom: 1rem;
   }
+
   p {
-    font-size: 1.6em;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+  }
+
+  .sparkle {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: #fff;
+    border-radius: 50%;
+    opacity: 0.8;
+    pointer-events: none;
   }
 </style>
 </head>
@@ -125,6 +148,7 @@
   </script>
 </body>
 </html>
+
 
 
 
