@@ -65,13 +65,13 @@
       let left = e.clientX;
 
       function animate() {
-        size += 1.2; // grow rate
+        size += 2; // grow rate
         top -= 1;    // move up
         kiss.style.fontSize = size + 'px';
         kiss.style.top = top + 'px';
         kiss.style.left = left + 'px';
 
-        if (size < 60) { // maximum size before removal
+        if (size < 120) { // maximum size before removal
           requestAnimationFrame(animate);
         } else {
           kiss.remove();
@@ -83,6 +83,7 @@
   </script>
 </body>
 </html>
+
 
 
 
