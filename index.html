@@ -41,12 +41,13 @@
 
   .sparkle {
     position: fixed;
-    width: 6px;
-    height: 6px;
-    background: #fff;
+    width: 10px;
+    height: 10px;
+    background: #ff69b4;
     border-radius: 50%;
     opacity: 0.8;
     pointer-events: none;
+    box-shadow: 0 0 6px #ff69b4, 0 0 10px #ff1493;
   }
 </style>
 </head>
@@ -86,22 +87,29 @@
         kiss.style.fontSize = initialSize + 'px';
         kiss.style.pointerEvents = 'none';
         kiss.style.opacity = 1;
+        kiss.style.transform = 'rotate(0deg)';
         document.body.appendChild(kiss);
 
         // Random drift direction and speed
-        const driftX = (Math.random() - 0.5) * 2; // -1 to 1 px/frame
-        const speedY = Math.random() * 1.5 + 1;    // 1-2.5 px/frame
+        const driftX = (Math.random() - 0.5) * 2;
+        const speedY = Math.random() * 1.5 + 1;
         let size = initialSize;
+        let rotation = 0;
+        let rotationSpeed = (Math.random() - 0.5) * 4; // degrees per frame
 
         function animate() {
-          size += 0.5; // grow
+          size += 0.5;
+          rotation += rotationSpeed;
+
           const currentTop = parseFloat(kiss.style.top);
           const currentLeft = parseFloat(kiss.style.left);
 
           kiss.style.top = (currentTop - speedY) + 'px';
           kiss.style.left = (currentLeft + driftX) + 'px';
           kiss.style.fontSize = size + 'px';
-          kiss.style.opacity = parseFloat(kiss.style.opacity) - 0.01; // fade
+          kiss.style.opacity = parseFloat(kiss.style.opacity) - 0.01;
+          kiss.style.transform = `rotate(${rotation}deg)`;
+
 
           if (parseFloat(kiss.style.opacity) > 0) {
             requestAnimationFrame(animate);
@@ -144,10 +152,11 @@
     }
 
     // generate sparkles continuously
-    setInterval(createSparkle, 200);
+    setInterval(createSparkle, 150);
   </script>
 </body>
 </html>
+
 
 
 
