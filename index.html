@@ -5,9 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title> Love Counter for Babyyyyyy </title>
 <style>
-   @import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:wght@300;500&display=swap');
   body {
-    font-family: Parisienne , sans-serif;
+    font-family: Segoe UI , sans-serif;
     background: #99D1C9;
     color: #0C2932 ;
     display: flex;
@@ -44,7 +43,7 @@
       const seconds = Math.floor((diff / 1000) % 60);
 
       document.getElementById("counter").textContent =
-        `${days} ngày, `${hours} giờ, ${minutes} phút, ${seconds} giây`;
+        `${days} ngày, ${hours} giờ, ${minutes} phút, ${seconds} giây`;
     }
 
     setInterval(updateCounter, 1000);
@@ -65,6 +64,7 @@
   </script>
 </body>
 </html>
+
 
 
 
