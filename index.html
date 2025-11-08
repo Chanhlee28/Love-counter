@@ -7,7 +7,8 @@
 <style>
   body {
     font-family: Poppins , sans-serif;
-    background: #99D1C9;
+    background: linear-gradient(rgba(255,182,193,0.5), rgba(255,215,220,0.5)), 
+                url('https://images.unsplash.com/photo-1515036559634-8bdf4d2e3c1c?auto=format&fit=crop&w=1400&q=80') center/cover no-repeat;
     color: #0C2932 ;
     display: flex;
     flex-direction: column;
@@ -89,9 +90,42 @@
         animate();
       }
     });
+    // ===================== BACKGROUND SPARKLES =====================
+    function createSparkle() {
+      const sparkle = document.createElement('div');
+      sparkle.className = 'sparkle';
+      sparkle.style.left = Math.random() * window.innerWidth + 'px';
+      sparkle.style.top = Math.random() * window.innerHeight + 'px';
+      sparkle.style.opacity = Math.random() * 0.8 + 0.2;
+      document.body.appendChild(sparkle);
+
+      let directionY = -0.3 - Math.random() * 0.5;
+      let directionX = (Math.random() - 0.5) * 0.2;
+
+      function move() {
+        const top = parseFloat(sparkle.style.top);
+        const left = parseFloat(sparkle.style.left);
+        sparkle.style.top = top + directionY + 'px';
+        sparkle.style.left = left + directionX + 'px';
+
+        sparkle.style.opacity = parseFloat(sparkle.style.opacity) - 0.001;
+
+        if (parseFloat(sparkle.style.opacity) > 0) {
+          requestAnimationFrame(move);
+        } else {
+          sparkle.remove();
+        }
+      }
+
+      move();
+    }
+
+    // generate sparkles continuously
+    setInterval(createSparkle, 200);
   </script>
 </body>
 </html>
+
 
 
 
