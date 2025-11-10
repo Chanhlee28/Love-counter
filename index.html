@@ -193,7 +193,9 @@ function updateCounter() {
 
   document.getElementById("counter").textContent = parts.join(', ');
 }
-
+// Keep the counter updating every second
+setInterval(updateCounter, 1000);
+updateCounter();
 
     function updateJourney(now) {
   const journeyBar = document.getElementById("journeyBar");
@@ -302,6 +304,7 @@ function updateCounter() {
 </script>
 </body>
 </html>
+
 
 
 
