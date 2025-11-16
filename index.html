@@ -42,31 +42,7 @@
     box-shadow: 0 0 12px rgba(135,206,250,0.6);
     margin-bottom: 1.4rem;
   }
-  #flightContainer {
-    width: 80%;
-    height: 20px;
-    background: rgba(255,255,255,0.4);
-    border-radius: 20px;
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 2rem;
-    box-shadow: 0 0 12px rgba(135,206,250,0.6);
-  }
-  #flightProgress {
-    width: 0%;
-    height: 100%;
-    background: linear-gradient(90deg, #87cefa, #1e90ff);
-    border-radius: 20px;
-    transition: width 0.4s linear;
-  }
-  #plane {
-    position: absolute;
-    top: -28px;
-    left: 0%;
-    font-size: 26px;
-    transition: left 0.4s linear;
-    transform: rotate(10deg);
-  }
+
   p {
     font-size: clamp(1rem, 3vw, 1.5rem);
     margin-bottom: 4rem;
@@ -146,10 +122,7 @@
   <h1>❤️Ngày đầu tiên của tụi mình❤️<br>✨26.09.2025✨</h1>
   <div id="counter"></div>
   <div id="meetCounter"></div>
-  <div id="flightContainer">
-    <div id="flightProgress"></div>
-    <div id="plane">✈️</div>
-</div>
+ 
   <p>💖Em yêu ơi, em thử nhắn vào màn hình đi 😘💞</p>
 
   <!-- Shared heart in the middle -->
@@ -244,21 +217,6 @@ function updateMeetCounter() {
 setInterval(updateMeetCounter, 1000);
 updateMeetCounter(); 
 
-function updateFlightProgress() {
-  const now=new Date();
-  const total = meetDate - now;       // time remaining
-  const full = meetDate - startDate;  // total journey length
-  let progress = 100 - (total/full*100);
-  progress = Math.max(0, Math.min(100, progress));
-
-  document.getElementById("flightProgress").style.width = progress + "%";
-  document.getElementById("plane").style.left = `calc(${progress}% - 15px)`;
-
-  if(progress >= 100){
-    document.getElementById("plane").textContent = "❤️🇻🇳";
-  }
-}
-setInterval(updateFlightProgress, 1000); updateFlightProgress();
 
  // Magical floating kisses
     document.addEventListener('click', (e) => {
@@ -398,6 +356,7 @@ setInterval(updateFlightProgress, 1000); updateFlightProgress();
 </script>
 </body>
 </html>
+
 
 
 
