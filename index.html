@@ -34,7 +34,14 @@
     box-shadow: 0 0 10px rgba(255,182,193,0.5);
     margin-bottom: 1rem;
   }
-
+  #meetCounter {
+    font-size: clamp(1.3rem, 4vw, 1.8rem);
+    background: rgba(255, 255, 255, 0.45);
+    padding: 0.5rem 1.2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 12px rgba(135,206,250,0.6);
+    margin-bottom: 1.4rem;
+  }
   p {
     font-size: clamp(1rem, 3vw, 1.5rem);
     margin-bottom: 4rem;
@@ -113,6 +120,7 @@
 <body>
   <h1>❤️Ngày đầu tiên của tụi mình❤️<br>✨26.09.2025✨</h1>
   <div id="counter"></div>
+  <div id="meetCounter"></div>
   <p>💖Em yêu ơi, em thử nhắn vào màn hình đi 😘💞</p>
 
   <!-- Shared heart in the middle -->
@@ -181,7 +189,31 @@
 
   setInterval(updateCounter, 1000);
   updateCounter();
-  
+  const meetDate = new Date("2025-11-20T20:00:00+07:00");
+
+function updateMeetCounter() {
+  const now = new Date();
+  let diff = meetDate - now;
+
+  if (diff <= 0) {
+    document.getElementById("meetCounter").textContent =
+      "💘 Anh đang ở bên em rồi 💞";
+    return;
+  }
+
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+
+  document.getElementById("meetCounter").innerHTML =
+    `⏳ Còn <b>${days} ngày, ${hours} giờ, ${minutes} phút, ${seconds} giây</b><br>
+     là anh gặp em yêu 💖`;
+}
+
+setInterval(updateMeetCounter, 1000);
+updateMeetCounter();
+
  // Magical floating kisses
     document.addEventListener('click', (e) => {
       const numKisses = Math.floor(Math.random() * 3) + 1; // spawn 1-3 kisses
@@ -320,6 +352,7 @@
 </script>
 </body>
 </html>
+
 
 
 
